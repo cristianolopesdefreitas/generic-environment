@@ -1,0 +1,17 @@
+{
+  "name": "generic-environment",
+  "description": "",
+  "main": "Gruntfile.js",
+  "authors": [
+    "Cristiano Lopes de Freitas"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
