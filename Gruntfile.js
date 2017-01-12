@@ -104,15 +104,17 @@ module.exports = function( grunt ) {
                 files:  [
                     {
                         expand: true,
-                        cwd: '<%= appConfig.bowerFonts %>',
+                        //cwd: '<%= appConfig.bowerFonts %>',
                         dest: '<%= appConfig.dist.fonts %>/',
-                        src: [ '*' ]
+                        //src: [ '*' ]
+                        src: '<%= appConfig.bowerFonts %>'
                     },
                     {
                         expand: true,
-                        cwd: '<%= appConfig.dev.images %>',
+                        //cwd: '<%= appConfig.dev.images %>',
                         dest: '<%= appConfig.dist.images %>/',
-                        src: [ '*' ]
+                        //src: [ '*' ]
+                        src: '<%= appConfig.bowerFonts %>'
                     }
                 ]
             },
@@ -120,9 +122,10 @@ module.exports = function( grunt ) {
                 files:  [
                     {
                         expand: true,
-                        cwd: '<%= appConfig.bowerFonts %>',
+                        //cwd: '<%= appConfig.bowerFonts %>',
                         dest: '<%= appConfig.dev.fonts %>/',
-                        src: [ '*' ]
+                        //src: [ '*' ]
+                        src: '<%= appConfig.bowerFonts %>'
                     }
                 ]
             }
