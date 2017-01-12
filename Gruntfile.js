@@ -109,13 +109,12 @@ module.exports = function( grunt ) {
                         //src: [ '*' ]
                         src: '<%= appConfig.bowerFonts %>'
                     },
-                    {
-                        expand: true,
-                        //cwd: '<%= appConfig.dev.images %>',
-                        dest: '<%= appConfig.dist.images %>/',
-                        //src: [ '*' ]
-                        src: '<%= appConfig.bowerFonts %>'
-                    }
+                    // {
+                    //     expand: true,
+                    //     cwd: '<%= appConfig.dev.images %>',
+                    //     dest: '<%= appConfig.dist.images %>/',
+                    //     src: [ '*' ]
+                    // }
                 ]
             },
             dev: {
@@ -185,6 +184,19 @@ module.exports = function( grunt ) {
             }
         }, // strip code
 
+        imagemin: {
+            dist: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= appConfig.dev.images %>/',
+                        dest: '<%= appConfig.dist.images %>/',
+                        src: [ '*.{png,jpg,gif,svg}' ]
+                    }
+                ]
+            }
+        }, // imagemin
+
         connect: {
             server: {
                 options: {
@@ -232,7 +244,8 @@ module.exports = function( grunt ) {
             'cssmin:dist',
             'includes:dist',
             'strip_code',
-            'copy:dist'
+            'copy:dist',
+            'imagemin:dist'
         ]);
     });
 
@@ -244,6 +257,7 @@ module.exports = function( grunt ) {
     grunt.loadNpmTasks( 'grunt-contrib-concat' );
     grunt.loadNpmTasks( 'grunt-includes' );
     grunt.loadNpmTasks( 'grunt-strip-code' );
+    grunt.loadNpmTasks( 'grunt-contrib-imagemin' );
     grunt.loadNpmTasks( 'grunt-contrib-connect' );
     grunt.loadNpmTasks( 'grunt-contrib-watch' );
 };
